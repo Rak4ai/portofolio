@@ -101,6 +101,56 @@
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
     }
+
+    /* 🔹 Responsif untuk HP */
+    @media (max-width: 640px) {
+      h1, h2, h3 {
+        text-align: center;
+      }
+
+      nav ul {
+        gap: 1.5rem !important;
+      }
+
+      section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      #home p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 8px;
+      }
+
+      .profile-pic {
+        width: 120px !important;
+        height: 120px !important;
+      }
+
+      .project-img {
+        height: 150px !important;
+      }
+
+      .project-card {
+        padding: 1.2rem !important;
+      }
+
+      .typewriter {
+        font-size: 1.5rem !important;
+      }
+
+      footer p {
+        font-size: 13px !important;
+      }
+
+      /* Kurangi partikel di HP */
+      .particle {
+        width: 2px !important;
+        height: 2px !important;
+        opacity: 0.5 !important;
+      }
+    }
   </style>
 </head>
 <body class="text-white relative scroll-smooth">
