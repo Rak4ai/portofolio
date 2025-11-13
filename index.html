@@ -8,142 +8,54 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #0b0c10, #000);
+  color: white;
+  overflow-x: hidden;
+}
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top, #0b0c10, #000);
-      overflow-x: hidden;
-      position: relative;
-    }
+/* Partikel */
+#particles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
 
-    /* Particles background */
-    #particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-      pointer-events: none;
-    }
+.particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  background-color: cyan;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float 6s infinite ease-in-out;
+}
 
-    .particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background-color: #00ffff;
-      border-radius: 50%;
-      opacity: 0.6;
-      animation: float 6s infinite ease-in-out;
-    }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
+/* Typewriter */
+.typewriter, .typewriter-line {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid cyan;
+  display: inline-block;
+  width: fit-content;
+}
 
-    /* Fade scroll */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease-out;
-    }
+@keyframes blink {
+  50% { border-color: transparent; }
+}
 
-    .fade-section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Typewriter */
-    .typewriter, .typewriter-line {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid cyan;
-      width: 0;
-      animation: typing 3s steps(25, end) forwards, blink 0.7s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    /* Hover efek */
-    .project-img {
-      transition: all 0.4s ease;
-      height: 200px;
-      object-fit: contain;
-    }
-
-    .project-img:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 10px cyan);
-    }
-
-    .project-card {
-      transition: all 0.4s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-    }
-
-    .profile-pic {
-      transition: all 0.5s ease;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-    }
-
-    .profile-pic:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
-    }
-
-    /* Responsif */
-    @media (max-width: 640px) {
-      h1, h2, h3 { text-align: center; }
-      nav ul { gap: 1.5rem !important; }
-      section { padding-left: 1rem !important; padding-right: 1rem !important; }
-
-      #home p {
-        font-size: 14px;
-        line-height: 1.6;
-        margin-top: 8px;
-      }
-
-      .profile-pic { width: 120px !important; height: 120px !important; }
-      .project-img { height: 150px !important; }
-      .project-card { padding: 1.2rem !important; }
-      .typewriter, .typewriter-line { font-size: 1.5rem !important; }
-      footer p { font-size: 13px !important; }
-
-      .particle {
-        width: 2px !important;
-        height: 2px !important;
-        opacity: 0.5 !important;
-      }
-    }
-
-    /* Navbar aktif */
-    .nav-link {
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-
-    .nav-link.active,
-    .nav-link.text-cyan-400.font-bold {
-      color: #00ffff !important;
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
-    }
-
-    @media (max-width: 768px) {
+/* RESPONSIVE */
+@media (max-width: 768px) {
   .typewriter { display: none !important; }
-  .typewriter-line { display: block !important; }
+  .typewriter-line { display: block !important; margin: 0 auto; text-align: center; }
 }
 
 @media (min-width: 769px) {
@@ -151,7 +63,56 @@
   .typewriter-line { display: none !important; }
 }
 
-  </style>
+/* Project card */
+.project-card {
+  transition: all 0.4s ease;
+  background: rgba(0,0,0,0.4);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(0,255,255,0.2);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.25);
+  border-color: rgba(0,255,255,0.4);
+}
+
+.project-img {
+  transition: all 0.4s ease;
+  height: 180px;
+  object-fit: contain;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px cyan);
+}
+
+/* ✨ Foto profil - efek baru */
+.profile-pic {
+  transition: all 0.6s ease;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+  transform-style: preserve-3d;
+}
+
+.profile-pic:hover {
+  transform: rotateY(6deg) scale(1.07);
+  box-shadow:
+    0 0 25px rgba(0, 255, 255, 0.6),
+    0 0 60px rgba(0, 255, 255, 0.2);
+  border-color: cyan;
+  filter: brightness(1.1);
+}
+
+/* Responsif aman */
+@media (max-width: 768px) {
+  .profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(0,255,255,0.5);
+  }
+}
+</style>
+
 </head>
 
 <body class="text-white relative scroll-smooth">
@@ -169,15 +130,13 @@
 
   <!-- HOME -->
   <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center fade-section px-4">
-   <h1 class="text-3xl md:text-4xl font-bold mb-6 text-white">
-  <!-- Desktop -->
-  <span class="typewriter hidden md:inline">Welcome To My Website!</span>
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+      <!-- Desktop -->
+      <span class="typewriter hidden md:inline">Welcome To My Website!</span>
 
-  <!-- Mobile -->
-  <span class="typewriter-line block md:hidden"></span>
-  <span class="typewriter-line block md:hidden"></span>
-</h1>
-
+      <!-- Mobile -->
+      <span class="typewriter-line block md:hidden"></span>
+    </h1>
 
     <img src="image/fotosaya.png" alt="Raka"
       class="profile-pic w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-cyan-500 shadow-lg mb-4 object-cover" />
@@ -251,89 +210,77 @@
     </p>
   </footer>
 
-  <script>
-    const particles = document.getElementById("particles");
-    for (let i = 0; i < 15; i++) {
-      const p = document.createElement("div");
-      p.className = "particle";
-      p.style.left = Math.random() * 100 + "vw";
-      p.style.top = Math.random() * 100 + "vh";
-      p.style.animationDelay = Math.random() * 6 + "s";
-      particles.appendChild(p);
+<script>
+  // Partikel background
+  const particles = document.getElementById("particles");
+  for (let i = 0; i < 15; i++) {
+    const p = document.createElement("div");
+    p.className = "particle";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.top = Math.random() * 100 + "vh";
+    p.style.animationDelay = Math.random() * 6 + "s";
+    particles.appendChild(p);
+  }
+
+  // Fade scroll
+  const sections = document.querySelectorAll(".fade-section");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle("show", entry.isIntersecting);
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(sec => observer.observe(sec));
+
+  // ✅ Typewriter fix (jalan di laptop & HP tanpa ganda)
+  window.addEventListener("load", () => {
+    const desktopEl = document.querySelector(".typewriter");
+    const mobileEl = document.querySelector(".typewriter-line");
+
+    const textDesktop = "Welcome To My Website!";
+    const textMobile = "Welcome To My Website!";
+
+    function typeEffect(el, text, speed = 100) {
+      let i = 0;
+      el.textContent = "";
+      const type = () => {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else {
+          el.style.animation = "blink 0.7s step-end infinite";
+        }
+      };
+      type();
     }
 
-    // Fade scroll
-    const sections = document.querySelectorAll(".fade-section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        entry.target.classList.toggle("show", entry.isIntersecting);
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(sec => observer.observe(sec));
+    if (window.innerWidth > 768 && desktopEl) {
+      typeEffect(desktopEl, textDesktop, 100);
+    } else if (mobileEl) {
+      typeEffect(mobileEl, textMobile, 100);
+    }
+  });
 
-    window.addEventListener("load", () => {
-      const desktop = document.querySelector(".typewriter");
-      const mobileLines = document.querySelectorAll(".typewriter-line");
-      const textDesktop = "Welcome To My Website!";
-      const textMobile1 = "Welcome To My";
-      const textMobile2 = "Website!";
+  // Navbar aktif
+  const navLinks = document.querySelectorAll(".nav-link");
+  const pageSections = document.querySelectorAll("section[id]");
 
-      if (desktop) desktop.textContent = "";
-      if (mobileLines.length > 0) mobileLines.forEach(line => line.textContent = "");
-
-      if (window.innerWidth > 768 && desktop) {
-        let i = 0;
-        const type = () => {
-          if (i < textDesktop.length) {
-            desktop.textContent += textDesktop.charAt(i);
-            i++;
-            setTimeout(type, 100);
+  function setActiveLink() {
+    let scrollPos = window.scrollY + 100;
+    pageSections.forEach(sec => {
+      if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove("active", "text-cyan-400", "font-bold");
+          if (link.getAttribute("href").includes(sec.id)) {
+            link.classList.add("active", "text-cyan-400", "font-bold");
           }
-        };
-        type();
-      } else if (mobileLines.length >= 2) {
-        let j = 0, k = 0;
-        const type1 = () => {
-          if (j < textMobile1.length) {
-            mobileLines[0].textContent += textMobile1.charAt(j);
-            j++;
-            setTimeout(type1, 100);
-          } else {
-            setTimeout(() => {
-              type2();
-            }, 500);
-          }
-        };
-        const type2 = () => {
-          if (k < textMobile2.length) {
-            mobileLines[1].textContent += textMobile2.charAt(k);
-            k++;
-            setTimeout(type2, 100);
-          }
-        };
-        type1();
+        });
       }
     });
+  }
 
-    const navLinks = document.querySelectorAll(".nav-link");
-    const pageSections = document.querySelectorAll("section[id]");
-
-    function setActiveLink() {
-      let scrollPos = window.scrollY + 100;
-      pageSections.forEach(sec => {
-        if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
-          navLinks.forEach(link => {
-            link.classList.remove("active", "text-cyan-400", "font-bold");
-            if (link.getAttribute("href").includes(sec.id)) {
-              link.classList.add("active", "text-cyan-400", "font-bold");
-            }
-          });
-        }
-      });
-    }
-
-    window.addEventListener("scroll", setActiveLink);
-    setActiveLink();
-  </script>
+  window.addEventListener("scroll", setActiveLink);
+  setActiveLink();
+</script>
 </body>
 </html>
