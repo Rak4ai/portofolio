@@ -17,7 +17,7 @@
       position: relative;
     }
 
-    /* === Particles Background === */
+    /* Particles background */
     #particles {
       position: fixed;
       top: 0;
@@ -44,43 +44,43 @@
       50% { transform: translateY(-20px); }
     }
 
-    /* === Fade Scroll Effect === */
+    /* Fade scroll */
     .fade-section {
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.8s ease-out;
     }
+
     .fade-section.show {
       opacity: 1;
       transform: translateY(0);
     }
-    .fade-section.hide {
-      opacity: 0.3;
-      transform: scale(0.98);
-    }
 
-    /* === Typewriter Effect (Welcome only) === */
-    .typewriter {
+    /* Typewriter */
+    .typewriter, .typewriter-line {
       overflow: hidden;
       white-space: nowrap;
       border-right: 3px solid cyan;
       width: 0;
       animation: typing 3s steps(25, end) forwards, blink 0.7s step-end infinite;
     }
+
     @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink {
-      50% { border-color: transparent }
+      from { width: 0; }
+      to { width: 100%; }
     }
 
-    /* === Hover Effects === */
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* Hover efek */
     .project-img {
       transition: all 0.4s ease;
       height: 200px;
       object-fit: contain;
     }
+
     .project-img:hover {
       transform: scale(1.05);
       filter: drop-shadow(0 0 10px cyan);
@@ -89,6 +89,7 @@
     .project-card {
       transition: all 0.4s ease;
     }
+
     .project-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
@@ -98,69 +99,66 @@
       transition: all 0.5s ease;
       box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
     }
+
     .profile-pic:hover {
       transform: scale(1.05);
       box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
     }
 
-    /* === Navbar Transition === */
-    .nav-link {
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-    .nav-link.active,
-    .nav-link.text-cyan-400.font-bold {
-      color: #00ffff !important;
-      text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
-    }
-
-    /* === Responsif (HP) === */
+    /* Responsif */
     @media (max-width: 640px) {
-      h1, h2, h3 {
-        text-align: center;
-      }
-      nav ul {
-        gap: 1.5rem !important;
-      }
-      section {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-      }
+      h1, h2, h3 { text-align: center; }
+      nav ul { gap: 1.5rem !important; }
+      section { padding-left: 1rem !important; padding-right: 1rem !important; }
+
       #home p {
         font-size: 14px;
         line-height: 1.6;
         margin-top: 8px;
       }
-      .profile-pic {
-        width: 120px !important;
-        height: 120px !important;
-      }
-      .project-img {
-        height: 150px !important;
-      }
-      .project-card {
-        padding: 1.2rem !important;
-      }
-      .typewriter {
-        font-size: 1.5rem !important;
-      }
-      footer p {
-        font-size: 13px !important;
-      }
-      /* Kurangi partikel di HP */
+
+      .profile-pic { width: 120px !important; height: 120px !important; }
+      .project-img { height: 150px !important; }
+      .project-card { padding: 1.2rem !important; }
+      .typewriter, .typewriter-line { font-size: 1.5rem !important; }
+      footer p { font-size: 13px !important; }
+
       .particle {
         width: 2px !important;
         height: 2px !important;
         opacity: 0.5 !important;
       }
     }
+
+    /* Navbar aktif */
+    .nav-link {
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .nav-link.active,
+    .nav-link.text-cyan-400.font-bold {
+      color: #00ffff !important;
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+  .typewriter { display: none !important; }
+  .typewriter-line { display: block !important; }
+}
+
+@media (min-width: 769px) {
+  .typewriter { display: inline !important; }
+  .typewriter-line { display: none !important; }
+}
+
   </style>
 </head>
 
 <body class="text-white relative scroll-smooth">
-  <!-- === Particles Background === -->
+  <!-- Particles -->
   <div id="particles"></div>
 
-  <!-- === Navbar === -->
+  <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-black/40 backdrop-blur-md z-50 flex justify-center py-4 border-b border-cyan-500/20">
     <ul class="flex space-x-6 md:space-x-10 text-base md:text-lg font-semibold">
       <li><a href="#home" class="nav-link hover:text-cyan-400 transition">Home</a></li>
@@ -169,18 +167,28 @@
     </ul>
   </nav>
 
-  <!-- === HOME === -->
+  <!-- HOME -->
   <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center fade-section px-4">
-    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-white">
-      <span class="typewriter">Welcome To My Website!</span>
-    </h1>
+   <h1 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+  <!-- Desktop -->
+  <span class="typewriter hidden md:inline">Welcome To My Website!</span>
+
+  <!-- Mobile -->
+  <span class="typewriter-line block md:hidden"></span>
+  <span class="typewriter-line block md:hidden"></span>
+</h1>
+
+
     <img src="image/fotosaya.png" alt="Raka"
       class="profile-pic w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-cyan-500 shadow-lg mb-4 object-cover" />
+
     <h2 class="text-cyan-400 text-xl md:text-2xl font-semibold mb-3">Raka Adiputra Irwan</h2>
+
     <p class="max-w-md md:max-w-2xl text-gray-300 text-sm md:text-base">
       Halo, saya Raka Adiputra Irwan, pelajar SMKN 4 Bandung jurusan Rekayasa Perangkat Lunak (RPL).
       Saya telah mempelajari berbagai bahasa pemrograman seperti HTML, CSS, JS, PHP, Kotlin, Java, dan MySQL.
     </p>
+
     <div class="flex gap-6 mt-6 text-xl">
       <a href="#" class="text-pink-400 hover:scale-110 transition-all"><i class="fab fa-instagram"></i></a>
       <a href="#" class="text-gray-200 hover:scale-110 transition-all"><i class="fab fa-github"></i></a>
@@ -188,38 +196,31 @@
     </div>
   </section>
 
-  <!-- === PROJECTS === -->
+  <!-- PROJECTS -->
   <section id="projects" class="min-h-screen flex flex-col justify-center items-center fade-section px-4">
     <h2 class="text-2xl md:text-4xl font-bold mb-10 text-cyan-400">My Projects</h2>
-
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-6xl">
       <div class="project-card bg-black/40 p-6 rounded-5xl shadow-lg text-center">
         <img src="image/Android.jpg" alt="Android Studio" class="project-img mx-auto mb-4">
         <h3 class="text-lg md:text-xl font-semibold text-cyan-300">Android Studio</h3>
-        <p class="text-gray-400 text-sm mt-2">
-          Aplikasi Android berbasis Kotlin yang interaktif dan responsif.
-        </p>
+        <p class="text-gray-400 text-sm mt-2">Aplikasi Android berbasis Kotlin yang interaktif dan responsif.</p>
       </div>
 
       <div class="project-card bg-black/40 p-6 rounded-3xl shadow-lg text-center">
         <img src="image/Laravel.png" alt="Web Project" class="project-img mx-auto mb-4">
         <h3 class="text-lg md:text-xl font-semibold text-cyan-300">Web CRUD</h3>
-        <p class="text-gray-400 text-sm mt-2">
-          Web CRUD memakai framework Laravel.
-        </p>
+        <p class="text-gray-400 text-sm mt-2">Web CRUD memakai framework Laravel.</p>
       </div>
 
       <div class="project-card bg-black/40 p-6 rounded-3xl shadow-lg text-center">
         <img src="image/Netbeans.png" alt="Java App" class="project-img mx-auto mb-4">
         <h3 class="text-lg md:text-xl font-semibold text-cyan-300">Java App</h3>
-        <p class="text-gray-400 text-sm mt-2">
-          Aplikasi desktop Java Swing untuk sistem penjualan sederhana.
-        </p>
+        <p class="text-gray-400 text-sm mt-2">Aplikasi desktop Java Swing untuk sistem penjualan sederhana.</p>
       </div>
     </div>
   </section>
 
-  <!-- === CONTACT === -->
+  <!-- CONTACT -->
   <section id="contact" class="min-h-screen flex flex-col justify-center items-center fade-section px-6">
     <h2 class="text-2xl md:text-4xl font-bold mb-6 text-cyan-400">Contact Me</h2>
     <p class="text-gray-300 mb-8 text-sm md:text-base text-center">
@@ -234,13 +235,11 @@
       <textarea name="message" placeholder="Pesan" rows="4" required
         class="w-full px-4 py-2 rounded-md bg-black/40 border border-cyan-500/20 text-white"></textarea>
       <button type="submit"
-        class="w-full py-2 rounded-md bg-cyan-500 hover:bg-cyan-400 transition text-black font-semibold">
-        Kirim
-      </button>
+        class="w-full py-2 rounded-md bg-cyan-500 hover:bg-cyan-400 transition text-black font-semibold">Kirim</button>
     </form>
   </section>
 
-  <!-- === FOOTER === -->
+  <!-- FOOTER -->
   <footer class="w-full bg-black/40 border-t border-cyan-500/20 py-6 text-center mt-10 backdrop-blur-md fade-section">
     <div class="flex justify-center gap-6 mb-3">
       <a href="#" class="text-cyan-400 hover:text-white transition"><i class="fab fa-instagram text-2xl"></i></a>
@@ -252,12 +251,11 @@
     </p>
   </footer>
 
-  <!-- === Font Awesome === -->
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a2e0b6b6b4.js" crossorigin="anonymous"></script>
 
-  <!-- === SCRIPT === -->
   <script>
-    // === Particles ===
+    // Particles
     const particles = document.getElementById("particles");
     for (let i = 0; i < 15; i++) {
       const p = document.createElement("div");
@@ -268,7 +266,7 @@
       particles.appendChild(p);
     }
 
-    // === Fade Scroll ===
+    // Fade scroll
     const sections = document.querySelectorAll(".fade-section");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -277,7 +275,7 @@
     }, { threshold: 0.2 });
     sections.forEach(sec => observer.observe(sec));
 
-    // === Typewriter Fix ===
+    // Typewriter fix (desktop + mobile)
     window.addEventListener("load", () => {
       const desktop = document.querySelector(".typewriter");
       const mobileLines = document.querySelectorAll(".typewriter-line");
@@ -290,7 +288,6 @@
 
       if (window.innerWidth > 768 && desktop) {
         let i = 0;
-        desktop.style.opacity = 1;
         const type = () => {
           if (i < textDesktop.length) {
             desktop.textContent += textDesktop.charAt(i);
@@ -301,7 +298,6 @@
         type();
       } else if (mobileLines.length >= 2) {
         let j = 0, k = 0;
-        mobileLines[0].style.opacity = 1;
         const type1 = () => {
           if (j < textMobile1.length) {
             mobileLines[0].textContent += textMobile1.charAt(j);
@@ -309,7 +305,6 @@
             setTimeout(type1, 100);
           } else {
             setTimeout(() => {
-              mobileLines[1].style.opacity = 1;
               type2();
             }, 500);
           }
@@ -325,7 +320,7 @@
       }
     });
 
-    // === Navbar Active Link ===
+    // Navbar aktif saat scroll
     const navLinks = document.querySelectorAll(".nav-link");
     const pageSections = document.querySelectorAll("section[id]");
 
