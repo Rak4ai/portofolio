@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio Raka</title>
 
-  <!-- Tailwind CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body {
   font-family: 'Poppins', sans-serif;
@@ -18,28 +19,22 @@ body {
 
 /* Partikel */
 #particles {
-  position: fixed;
-  top: 0; left: 0;
+  position: fixed; top: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: -1;
-  pointer-events: none;
+  z-index: -1; pointer-events: none;
 }
-
 .particle {
   position: absolute;
   width: 3px; height: 3px;
-  background-color: cyan;
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: float 6s infinite ease-in-out;
+  background-color: cyan; border-radius: 50%;
+  opacity: 0.6; animation: float 6s infinite ease-in-out;
 }
-
 @keyframes float {
   0%,100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
 }
 
-/* Fade scroll (awal disembunyikan) */
+/* Fade animasi */
 .fade-section {
   opacity: 0;
   transform: translateY(30px);
@@ -54,7 +49,7 @@ body {
 .typewriter, .typewriter-line {
   overflow: hidden;
   white-space: nowrap;
-  border-right: 3px solid white; /* kursor putih (hapus cyan ganda) */
+  border-right: 3px solid white;
   display: inline-block;
   width: fit-content;
 }
@@ -62,7 +57,7 @@ body {
   50% { border-color: transparent; }
 }
 
-/* RESPONSIVE */
+/* Responsif */
 @media (max-width: 768px) {
   .typewriter { display: none !important; }
   .typewriter-line { display: block !important; margin: 0 auto; text-align: center; }
@@ -97,35 +92,25 @@ body {
 /* Foto profil */
 .profile-pic {
   transition: all 0.6s ease;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
-  transform-style: preserve-3d;
+  box-shadow: 0 0 12px rgba(0,255,255,0.3);
 }
 .profile-pic:hover {
   transform: rotateY(6deg) scale(1.07);
   box-shadow:
-    0 0 25px rgba(0, 255, 255, 0.6),
-    0 0 60px rgba(0, 255, 255, 0.2);
+    0 0 25px rgba(0,255,255,0.6),
+    0 0 60px rgba(0,255,255,0.2);
   border-color: cyan;
   filter: brightness(1.1);
 }
-@media (max-width: 768px) {
-  .profile-pic:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 18px rgba(0,255,255,0.5);
-  }
-}
 
-/* Hapus border cursor setelah animasi selesai */
-.typewriter.done,
-.typewriter-line.done {
+/* Hapus border cursor setelah selesai */
+.typewriter.done, .typewriter-line.done {
   border-right: none !important;
 }
 </style>
-
 </head>
 
 <body class="text-white relative scroll-smooth">
-  <!-- Particles -->
   <div id="particles"></div>
 
   <!-- Navbar -->
@@ -140,10 +125,9 @@ body {
   <!-- HOME -->
   <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center fade-section px-4">
     <h1 class="text-3xl md:text-4xl font-bold mb-6 text-white">
-      <!-- Desktop -->
       <span class="typewriter hidden md:inline">Welcome To My Website!</span>
-      <!-- Mobile (single line) -->
-      <span class="typewriter-line block md:hidden"></span>
+      <span class="typewriter-line block md:hidden" data-text="Welcome To My "></span>
+      <span class="typewriter-line block md:hidden" data-text="Website!"></span>
     </h1>
 
     <img src="image/fotosaya.png" alt="Raka"
@@ -155,32 +139,24 @@ body {
       Halo, saya Raka Adiputra Irwan, pelajar SMKN 4 Bandung jurusan Rekayasa Perangkat Lunak (RPL).
       Saya telah mempelajari berbagai bahasa pemrograman seperti HTML, CSS, JS, PHP, Kotlin, Java, dan MySQL.
     </p>
-
-    <div class="flex gap-6 mt-6 text-xl">
-      <a href="#" class="text-pink-400 hover:scale-110 transition-all"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="text-gray-200 hover:scale-110 transition-all"><i class="fab fa-github"></i></a>
-      <a href="#" class="text-cyan-400 hover:scale-110 transition-all"><i class="fab fa-tiktok"></i></a>
-    </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="min-h-screen flex flex-col justify-center items-center fade-section px-4">
     <h2 class="text-2xl md:text-4xl font-bold mb-10 text-cyan-400">My Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-6xl">
-      <div class="project-card bg-black/40 p-6 rounded-5xl shadow-lg text-center">
-        <img src="image/Android.jpg" alt="Android Studio" class="project-img mx-auto mb-4">
+      <div class="project-card p-6 shadow-lg text-center">
+        <img src="image/Android.jpg" class="project-img mx-auto mb-4">
         <h3 class="text-lg md:text-xl font-semibold text-cyan-300">Android Studio</h3>
         <p class="text-gray-400 text-sm mt-2">Aplikasi Android berbasis Kotlin yang interaktif dan responsif.</p>
       </div>
-
-      <div class="project-card bg-black/40 p-6 rounded-3xl shadow-lg text-center">
-        <img src="image/Laravel.png" alt="Web Project" class="project-img mx-auto mb-4">
+      <div class="project-card p-6 shadow-lg text-center">
+        <img src="image/Laravel.png" class="project-img mx-auto mb-4">
         <h3 class="text-lg md:text-xl font-semibold text-cyan-300">Web CRUD</h3>
         <p class="text-gray-400 text-sm mt-2">Web CRUD memakai framework Laravel.</p>
       </div>
-
-      <div class="project-card bg-black/40 p-6 rounded-3xl shadow-lg text-center">
-        <img src="image/Netbeans.png" alt="Java App" class="project-img mx-auto mb-4">
+      <div class="project-card p-6 shadow-lg text-center">
+        <img src="image/Netbeans.png" class="project-img mx-auto mb-4">
         <h3 class="text-lg md:text-xl font-semibold text-cyan-300">Java App</h3>
         <p class="text-gray-400 text-sm mt-2">Aplikasi desktop Java Swing untuk sistem penjualan sederhana.</p>
       </div>
@@ -190,39 +166,25 @@ body {
   <!-- CONTACT -->
   <section id="contact" class="min-h-screen flex flex-col justify-center items-center fade-section px-6">
     <h2 class="text-2xl md:text-4xl font-bold mb-6 text-cyan-400">Contact Me</h2>
-    <p class="text-gray-300 mb-8 text-sm md:text-base text-center">
-      Ingin berkolaborasi atau sekadar menyapa? Kirim pesan ke saya!
-    </p>
-
     <form action="https://formspree.io/f/mzzvnwez" method="POST" class="w-full max-w-md space-y-4">
-      <input type="text" name="name" placeholder="Nama" required
-        class="w-full px-4 py-2 rounded-md bg-black/40 border border-cyan-500/20 text-white" />
-      <input type="email" name="email" placeholder="Email" required
-        class="w-full px-4 py-2 rounded-md bg-black/40 border border-cyan-500/20 text-white" />
-      <textarea name="message" placeholder="Pesan" rows="4" required
-        class="w-full px-4 py-2 rounded-md bg-black/40 border border-cyan-500/20 text-white"></textarea>
-      <button type="submit"
-        class="w-full py-2 rounded-md bg-cyan-500 hover:bg-cyan-400 transition text-black font-semibold">Kirim</button>
+      <input type="text" name="name" placeholder="Nama" required class="w-full px-4 py-2 rounded-md bg-black/40 border border-cyan-500/20 text-white" />
+      <input type="email" name="email" placeholder="Email" required class="w-full px-4 py-2 rounded-md bg-black/40 border border-cyan-500/20 text-white" />
+      <textarea name="message" placeholder="Pesan" rows="4" required class="w-full px-4 py-2 rounded-md bg-black/40 border border-cyan-500/20 text-white"></textarea>
+      <button type="submit" class="w-full py-2 rounded-md bg-cyan-500 hover:bg-cyan-400 transition text-black font-semibold">Kirim</button>
     </form>
   </section>
 
   <!-- FOOTER -->
   <footer class="w-full bg-black/40 border-t border-cyan-500/20 py-6 text-center mt-10 backdrop-blur-md fade-section">
-    <div class="flex justify-center gap-6 mb-3">
-      <a href="#" class="text-cyan-400 hover:text-white transition"><i class="fab fa-instagram text-2xl"></i></a>
-      <a href="#" class="text-cyan-400 hover:text-white transition"><i class="fab fa-github text-2xl"></i></a>
-      <a href="#" class="text-cyan-400 hover:text-white transition"><i class="fab fa-tiktok text-2xl"></i></a>
-    </div>
     <p class="text-gray-400 text-sm">
       © 2025 <span class="text-cyan-400">Raka Adiputra Irwan</span> — All Rights Reserved.
     </p>
   </footer>
 
-  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a2e0b6b6b4.js" crossorigin="anonymous"></script>
 
 <script>
-  // Partikel background
+  // Partikel
   const particles = document.getElementById("particles");
   for (let i = 0; i < 15; i++) {
     const p = document.createElement("div");
@@ -233,7 +195,7 @@ body {
     particles.appendChild(p);
   }
 
-  // Fade-in observer (mengembalikan animasi fade yang hilang)
+  // Fade
   const fadeSections = document.querySelectorAll('.fade-section');
   const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -243,40 +205,49 @@ body {
   }, { threshold: 0.2 });
   fadeSections.forEach(s => fadeObserver.observe(s));
 
-  // Typewriter (satu saja, tanpa efek cyan ganda)
-  window.addEventListener("load", () => {
-    const desktopEl = document.querySelector(".typewriter");
-    const mobileEl = document.querySelector(".typewriter-line");
-    const text = "Welcome To My Website!";
-
-    function typeEffect(el, text, speed = 90) {
-      let i = 0;
-      el.textContent = "";
-      const type = () => {
-        if (i < text.length) {
-          el.textContent += text.charAt(i);
-          i++;
-          setTimeout(type, speed);
-        } else {
-          // set border blink after finished then remove later
-          el.style.animation = "blink 0.7s step-end infinite";
-          setTimeout(() => el.classList.add("done"), 900);
-        }
-      };
-      type();
+  // Typewriter multi-line
+  function typeEffect(el, text, speed = 90, callback) {
+    let i = 0;
+    el.textContent = "";
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else {
+        el.style.animation = "blink 0.7s step-end infinite";
+        setTimeout(() => el.classList.add("done"), 900);
+        if (callback) callback();
+      }
     }
+    type();
+  }
 
-    if (window.innerWidth > 768 && desktopEl) {
-      typeEffect(desktopEl, text, 90);
-    } else if (mobileEl) {
-      typeEffect(mobileEl, text, 90);
+  window.addEventListener("load", () => {
+    const desktop = document.querySelector(".typewriter");
+    const mobileLines = document.querySelectorAll(".typewriter-line");
+
+    if (window.innerWidth > 768 && desktop) {
+      typeEffect(desktop, "Welcome To My Website!");
+    } else {
+      // Untuk HP: jalankan 2 baris berurutan
+      let index = 0;
+      function nextLine() {
+        if (index < mobileLines.length) {
+          const el = mobileLines[index];
+          typeEffect(el, el.dataset.text, 85, () => {
+            index++;
+            nextLine();
+          });
+        }
+      }
+      nextLine();
     }
   });
 
   // Navbar aktif
   const navLinks = document.querySelectorAll(".nav-link");
   const pageSections = document.querySelectorAll("section[id]");
-
   function setActiveLink() {
     let scrollPos = window.scrollY + 120;
     pageSections.forEach(sec => {
@@ -291,8 +262,7 @@ body {
     });
   }
   window.addEventListener("scroll", setActiveLink);
-  setActiveLink(); // panggil satu kali saat load
-
+  setActiveLink();
 </script>
 </body>
 </html>
