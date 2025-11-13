@@ -251,11 +251,7 @@
     </p>
   </footer>
 
-  <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/a2e0b6b6b4.js" crossorigin="anonymous"></script>
-
   <script>
-    // Particles
     const particles = document.getElementById("particles");
     for (let i = 0; i < 15; i++) {
       const p = document.createElement("div");
@@ -275,13 +271,12 @@
     }, { threshold: 0.2 });
     sections.forEach(sec => observer.observe(sec));
 
-    // Typewriter fix (desktop + mobile)
     window.addEventListener("load", () => {
       const desktop = document.querySelector(".typewriter");
       const mobileLines = document.querySelectorAll(".typewriter-line");
       const textDesktop = "Welcome To My Website!";
-      const textMobile1 = "Welcome To";
-      const textMobile2 = "My Website!";
+      const textMobile1 = "Welcome To My";
+      const textMobile2 = "Website!";
 
       if (desktop) desktop.textContent = "";
       if (mobileLines.length > 0) mobileLines.forEach(line => line.textContent = "");
@@ -320,7 +315,6 @@
       }
     });
 
-    // Navbar aktif saat scroll
     const navLinks = document.querySelectorAll(".nav-link");
     const pageSections = document.querySelectorAll("section[id]");
 
